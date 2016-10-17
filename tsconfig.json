@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "declaration": true,
-    "outDir": "./built",
+    "pretty": true,
+    "outFile": "./built/jasmine-matchers.js",
     "target": "es5",
     "types": [
       "jasmine",
@@ -10,6 +10,6 @@
     ]
   },
   "include": [
-    "./src/index.js"
+    "./src/index.ts"
   ]
 }

@@ -2,7 +2,7 @@
 var is = require('./is');
 
 // public
-module.exports = function reduce(collection, fn, memo) {
+module.exports = function reduce(collection: any[], fn: Function, memo: any): any {
   if (is(collection, 'Array')) {
     for (var i = 0, len = collection.length; i < len; i++) {
       memo = fn(memo, collection[i], i, collection);

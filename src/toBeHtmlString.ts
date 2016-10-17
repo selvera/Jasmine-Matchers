@@ -2,7 +2,7 @@
 var toBeString = require('./toBeString');
 
 // public
-module.exports = function toBeHtmlString(actual) {
+module.exports = function toBeHtmlString(actual: any): boolean {
   // <           start with opening tag "<"
   //  (          start group 1
   //    "[^"]*"  allow string in "double quotes"

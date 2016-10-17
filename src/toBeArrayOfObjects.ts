@@ -4,6 +4,6 @@ var toBeArray = require('./toBeArray');
 var toBeObject = require('./toBeObject');
 
 // public
-module.exports = function toBeArrayOfBooleans(actual) {
+module.exports = function toBeArrayOfObjects(actual: any): boolean {
   return toBeArray(actual) && every(actual, toBeObject);
 };

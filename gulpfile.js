@@ -1,9 +1,11 @@
+// 3rd party modules
 var browserify = require('browserify');
 var gulp = require('gulp');
 var source = require('vinyl-source-stream');
 var tsify = require('tsify');
 
-gulp.task('default', function() {
+// public
+gulp.task('build-source', function() {
   return browserify({
       basedir: '.',
       debug: true,
@@ -13,37 +15,18 @@ gulp.task('default', function() {
     })
     .plugin(tsify)
     .bundle()
-    .pipe(source('bundle.js'))
-    .pipe(gulp.dest('built'));
+    .pipe(source('jasmine-matchers.js'))
+    .pipe(gulp.dest('dist'));
 });
 
-// // 3rd party modules
-// var browserify = require('browserify');
-// var gulp = require('gulp');
-// var source = require('vinyl-source-stream');
+gulp.task('build-tests', function() {
+  return browserify('./test/index.js')
+    .bundle()
+    .pipe(source('jasmine-matchers.spec.js'))
+    .pipe(gulp.dest('dist'));
+});
 
-// // public
-// gulp.task('browserify', function () {
-//   browserify('./src/index.js')
-//     .bundle()
-//     .pipe(source('jasmine-matchers.js'))
-//     .pipe(gulp.dest('dist'));
-//   browserify('./test/index.js')
-//     .bundle()
-//     .pipe(source('jasmine-matchers.spec.js'))
-//     .pipe(gulp.dest('dist'));
-// });
-
-// gulp.task('build', [
-//   'browserify'
-// ]);
-
-// gulp.task('development-watchers', ['build'], function () {
-//   return gulp.watch([
-//     '*.js',
-//     'src/**/*.js',
-//     'test/**/*.js'
-//   ], [
-//     'build'
-//   ]);
-// });
+gulp.task('build', [
+  'build-source',
+  'build-tests'
+]);

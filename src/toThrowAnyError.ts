@@ -1,5 +1,5 @@
 // public
-module.exports = function toThrowAnyError(actual) {
+module.exports = function toThrowAnyError(actual: any): boolean {
   try {
     actual();
     return false;

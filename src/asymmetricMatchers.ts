@@ -16,7 +16,7 @@ function createFactory(matcher) {
   return function asymmetricMatcherFactory() {
     var args = [].slice.call(arguments);
     return {
-      asymmetricMatch: function asymmetricMatcher(actual) {
+      asymmetricMatch: function asymmetricMatcher(actual: any): boolean {
         var clone = args.slice();
         clone.push(actual);
         return matcher.apply(this, clone);

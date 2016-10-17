@@ -2,7 +2,7 @@
 var toBeNonEmptyString = require('./toBeNonEmptyString');
 
 // public
-module.exports = function toEndWith(subString, actual) {
+module.exports = function toEndWith(subString: string, actual: any): boolean {
   if (!toBeNonEmptyString(actual) || !toBeNonEmptyString(subString)) {
     return false;
   }

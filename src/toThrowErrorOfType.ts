@@ -1,5 +1,5 @@
 // public
-module.exports = function toThrowErrorOfType(type, actual) {
+module.exports = function toThrowErrorOfType(type: string, actual: any): boolean {
   try {
     actual();
     return false;

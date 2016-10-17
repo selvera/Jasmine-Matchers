@@ -1,3 +1,9 @@
+declare module NodeJS  {
+  interface Global {
+    any: any
+  }
+}
+
 // 3rd party modules
 var loader = require('jasmine-matchers-loader');
 
