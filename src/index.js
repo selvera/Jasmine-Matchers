@@ -1,88 +1,9 @@
-const addMatchers = require('add-matchers');
+import addMatchers from 'add-matchers';
+import * as matchersByName from './matchers';
 
-const matchersByName = {
-  toBeAfter: require('./toBeAfter'),
-  toBeArray: require('./toBeArray'),
-  toBeArrayOfBooleans: require('./toBeArrayOfBooleans'),
-  toBeArrayOfNumbers: require('./toBeArrayOfNumbers'),
-  toBeArrayOfObjects: require('./toBeArrayOfObjects'),
-  toBeArrayOfSize: require('./toBeArrayOfSize'),
-  toBeArrayOfStrings: require('./toBeArrayOfStrings'),
-  toBeBefore: require('./toBeBefore'),
-  toBeBoolean: require('./toBeBoolean'),
-  toBeCalculable: require('./toBeCalculable'),
-  toBeDate: require('./toBeDate'),
-  toBeEmptyArray: require('./toBeEmptyArray'),
-  toBeEmptyObject: require('./toBeEmptyObject'),
-  toBeEmptyString: require('./toBeEmptyString'),
-  toBeEvenNumber: require('./toBeEvenNumber'),
-  toBeFalse: require('./toBeFalse'),
-  toBeFunction: require('./toBeFunction'),
-  toBeGreaterThanOrEqualTo: require('./toBeGreaterThanOrEqualTo'),
-  toBeHtmlString: require('./toBeHtmlString'),
-  toBeIso8601: require('./toBeIso8601'),
-  toBeJsonString: require('./toBeJsonString'),
-  toBeLessThanOrEqualTo: require('./toBeLessThanOrEqualTo'),
-  toBeLongerThan: require('./toBeLongerThan'),
-  toBeNear: require('./toBeNear'),
-  toBeNonEmptyArray: require('./toBeNonEmptyArray'),
-  toBeNonEmptyObject: require('./toBeNonEmptyObject'),
-  toBeNonEmptyString: require('./toBeNonEmptyString'),
-  toBeNumber: require('./toBeNumber'),
-  toBeObject: require('./toBeObject'),
-  toBeOddNumber: require('./toBeOddNumber'),
-  toBeRegExp: require('./toBeRegExp'),
-  toBeSameLengthAs: require('./toBeSameLengthAs'),
-  toBeShorterThan: require('./toBeShorterThan'),
-  toBeString: require('./toBeString'),
-  toBeTrue: require('./toBeTrue'),
-  toBeValidDate: require('./toBeValidDate'),
-  toBeWhitespace: require('./toBeWhitespace'),
-  toBeWholeNumber: require('./toBeWholeNumber'),
-  toBeWithinRange: require('./toBeWithinRange'),
-  toEndWith: require('./toEndWith'),
-  toHaveArray: require('./toHaveArray'),
-  toHaveArrayOfBooleans: require('./toHaveArrayOfBooleans'),
-  toHaveArrayOfNumbers: require('./toHaveArrayOfNumbers'),
-  toHaveArrayOfObjects: require('./toHaveArrayOfObjects'),
-  toHaveArrayOfSize: require('./toHaveArrayOfSize'),
-  toHaveArrayOfStrings: require('./toHaveArrayOfStrings'),
-  toHaveBoolean: require('./toHaveBoolean'),
-  toHaveCalculable: require('./toHaveCalculable'),
-  toHaveDate: require('./toHaveDate'),
-  toHaveDateAfter: require('./toHaveDateAfter'),
-  toHaveDateBefore: require('./toHaveDateBefore'),
-  toHaveEmptyArray: require('./toHaveEmptyArray'),
-  toHaveEmptyObject: require('./toHaveEmptyObject'),
-  toHaveEmptyString: require('./toHaveEmptyString'),
-  toHaveEvenNumber: require('./toHaveEvenNumber'),
-  toHaveFalse: require('./toHaveFalse'),
-  toHaveHtmlString: require('./toHaveHtmlString'),
-  toHaveIso8601: require('./toHaveIso8601'),
-  toHaveJsonString: require('./toHaveJsonString'),
-  toHaveMember: require('./toHaveMember'),
-  toHaveMethod: require('./toHaveMethod'),
-  toHaveNonEmptyArray: require('./toHaveNonEmptyArray'),
-  toHaveNonEmptyObject: require('./toHaveNonEmptyObject'),
-  toHaveNonEmptyString: require('./toHaveNonEmptyString'),
-  toHaveNumber: require('./toHaveNumber'),
-  toHaveNumberWithinRange: require('./toHaveNumberWithinRange'),
-  toHaveObject: require('./toHaveObject'),
-  toHaveOddNumber: require('./toHaveOddNumber'),
-  toHaveString: require('./toHaveString'),
-  toHaveStringLongerThan: require('./toHaveStringLongerThan'),
-  toHaveStringSameLengthAs: require('./toHaveStringSameLengthAs'),
-  toHaveStringShorterThan: require('./toHaveStringShorterThan'),
-  toHaveTrue: require('./toHaveTrue'),
-  toHaveUndefined: require('./toHaveUndefined'),
-  toHaveWhitespaceString: require('./toHaveWhitespaceString'),
-  toHaveWholeNumber: require('./toHaveWholeNumber'),
-  toStartWith: require('./toStartWith'),
-  toThrowAnyError: require('./toThrowAnyError'),
-  toThrowErrorOfType: require('./toThrowErrorOfType')
-};
+addMatchers(matchersByName);
 
-const asymmetricMatchersByName = {
+addMatchers.asymmetric({
   after: matchersByName.toBeAfter,
   arrayOfBooleans: matchersByName.toBeArrayOfBooleans,
   arrayOfNumbers: matchersByName.toBeArrayOfNumbers,
@@ -111,9 +32,6 @@ const asymmetricMatchersByName = {
   withinRange: matchersByName.toBeWithinRange,
   endingWith: matchersByName.toEndWith,
   startingWith: matchersByName.toStartWith
-};
+});
 
-addMatchers(matchersByName);
-addMatchers.asymmetric(asymmetricMatchersByName);
-
-module.exports = matchersByName;
+export default matchersByName;

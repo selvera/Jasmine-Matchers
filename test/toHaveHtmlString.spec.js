@@ -3,14 +3,15 @@ const describeToHaveX = require('./lib/describeToHaveX');
 describe('toHaveHtmlString', () => {
   describeToHaveX('toHaveHtmlString', () => {
     describe('when subject IS a string of HTML markup', () => {
+      let ngMultiLine;
       beforeEach(function () {
-        this.ngMultiLine = '';
-        this.ngMultiLine += '<a data-ng-href="//www.google.com" data-ng-click="launchApp($event)" target="_blank" class="ng-binding" href="//www.google.com">';
-        this.ngMultiLine += '\n';
-        this.ngMultiLine += '  Watch with Google TV';
-        this.ngMultiLine += '\n';
-        this.ngMultiLine += '</a>';
-        this.ngMultiLine += '\n';
+        ngMultiLine = '';
+        ngMultiLine += '<a data-ng-href="//www.google.com" data-ng-click="launchApp($event)" target="_blank" class="ng-binding" href="//www.google.com">';
+        ngMultiLine += '\n';
+        ngMultiLine += '  Watch with Google TV';
+        ngMultiLine += '\n';
+        ngMultiLine += '</a>';
+        ngMultiLine += '\n';
       });
       it('should confirm', function () {
         expect({
@@ -26,7 +27,7 @@ describe('toHaveHtmlString', () => {
           memberName: '<li ng-if="foo > bar || bar < foo && baz == bar">'
         }).toHaveHtmlString('memberName');
         expect({
-          memberName: this.ngMultiLine
+          memberName: ngMultiLine
         }).toHaveHtmlString('memberName');
       });
     });

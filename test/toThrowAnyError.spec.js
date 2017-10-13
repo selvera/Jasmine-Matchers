@@ -1,25 +1,28 @@
 describe('toThrowAnyError', () => {
   describe('when supplied a function', () => {
     describe('when function errors when invoked', () => {
+      let throwError;
+      let badReference;
       beforeEach(function () {
-        this.throwError = function () {
+        throwError = function () {
           throw new Error('wut?');
         };
-        this.badReference = function () {
-          return badReference.someValue; // eslint-disable-line no-undef
+        badReference = function () {
+          return some.unreachable.value; // eslint-disable-line no-undef
         };
       });
       it('should confirm', function () {
-        expect(this.throwError).toThrowAnyError();
-        expect(this.badReference).toThrowAnyError();
+        expect(throwError).toThrowAnyError();
+        expect(badReference).toThrowAnyError();
       });
     });
     describe('when function does NOT error when invoked', () => {
+      let noErrors;
       beforeEach(function () {
-        this.noErrors = function () {};
+        noErrors = function () {};
       });
       it('should deny', function () {
-        expect(this.noErrors).not.toThrowAnyError();
+        expect(noErrors).not.toThrowAnyError();
       });
     });
   });

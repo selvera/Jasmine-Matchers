@@ -1,19 +1,20 @@
 const describeToHaveX = require('./lib/describeToHaveX');
 
 describe('toHaveEmptyObject', () => {
+  let Foo;
   beforeEach(function () {
-    this.Foo = function () {};
+    Foo = function () {};
   });
   describeToHaveX('toHaveEmptyObject', () => {
     describe('when subject IS an Object with no instance members', () => {
       beforeEach(function () {
-        this.Foo.prototype = {
+        Foo.prototype = {
           b: 2
         };
       });
       it('should confirm', function () {
         expect({
-          memberName: new this.Foo()
+          memberName: new Foo()
         }).toHaveEmptyObject('memberName');
         expect({
           memberName: {}

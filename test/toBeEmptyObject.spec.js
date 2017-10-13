@@ -1,16 +1,17 @@
 describe('toBeEmptyObject', () => {
+  let Foo;
   beforeEach(function () {
-    this.Foo = function () {};
+    Foo = function () {};
   });
   describe('when invoked', () => {
     describe('when subject IS an Object with no instance members', () => {
       beforeEach(function () {
-        this.Foo.prototype = {
+        Foo.prototype = {
           b: 2
         };
       });
       it('should confirm', function () {
-        expect(new this.Foo()).toBeEmptyObject();
+        expect(new Foo()).toBeEmptyObject();
         expect({}).toBeEmptyObject();
       });
     });
