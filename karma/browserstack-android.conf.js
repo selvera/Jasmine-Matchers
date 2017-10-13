@@ -4,12 +4,11 @@ module.exports = function (config) {
   baseConfig({
     set(base) {
       base.browsers = [
-        // 'android-5.0', browserstack is timing out
-        'android-4.4',
-        'android-4.3',
-        'android-4.2',
-        'android-4.1',
-        'android-4.0'
+        'android-8.0',
+        'android-7.1',
+        'android-7.0',
+        'android-6.0',
+        'android-5.1'
       ];
       config.set(base);
     }

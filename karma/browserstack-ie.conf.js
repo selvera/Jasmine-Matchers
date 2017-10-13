@@ -4,7 +4,8 @@ module.exports = function (config) {
   baseConfig({
     set(base) {
       base.browsers = [
-        'edge-13.0',
+        'edge-15.0',
+        'edge-14.0',
         'ie-11.0',
         'ie-10.0',
         'ie-9.0'

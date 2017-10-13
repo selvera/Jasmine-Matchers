@@ -4,6 +4,7 @@ module.exports = function (config) {
   baseConfig({
     set(base) {
       base.browsers = [
+        'safari-10.1',
         'safari-9.1',
         'safari-8.0',
         'safari-7.1',
