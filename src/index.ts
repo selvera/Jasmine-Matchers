@@ -14,6 +14,7 @@ addMatchers.asymmetric({
   calculable: matchersByName.toBeCalculable,
   emptyArray: matchersByName.toBeEmptyArray,
   emptyObject: matchersByName.toBeEmptyObject,
+  endingWith: matchersByName.toEndWith,
   evenNumber: matchersByName.toBeEvenNumber,
   greaterThanOrEqualTo: matchersByName.toBeGreaterThanOrEqualTo,
   iso8601: matchersByName.toBeIso8601,
@@ -27,11 +28,10 @@ addMatchers.asymmetric({
   regExp: matchersByName.toBeRegExp,
   sameLengthAs: matchersByName.toBeSameLengthAs,
   shorterThan: matchersByName.toBeShorterThan,
+  startingWith: matchersByName.toStartWith,
   whitespace: matchersByName.toBeWhitespace,
   wholeNumber: matchersByName.toBeWholeNumber,
-  withinRange: matchersByName.toBeWithinRange,
-  endingWith: matchersByName.toEndWith,
-  startingWith: matchersByName.toStartWith
+  withinRange: matchersByName.toBeWithinRange
 });
 
 export default matchersByName;

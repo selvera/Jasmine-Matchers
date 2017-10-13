@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "noImplicitAny": false,
+    "strict": false,
+    "types": ["jasmine"]
+  }
+}
